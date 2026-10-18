@@ -9,7 +9,9 @@ heterogeneity analysis.
 
 - `report.pdf` — the empirical report
 - `AI_USE_DISCLOSURE.md` — how AI was used at each stage
-- `stata/replication.do` — the workflow that generates all tables and figures
+- `stata/replication.do` — the Stata workflow that generates all tables and figures
+- `stata/output/processed_data.dta` — the processed analysis dataset
+- `python/replication.py` — independent Python implementation used as a cross-check
 - `data/` — original input data
 - `skills/SKILL.md` — the reusable skill that generates the main outputs
 
@@ -25,6 +27,10 @@ do replication.do
 The workflow constructs all variables, reproduces Table 2, Table 3, Table 4,
 and Figure 1, and runs the store-size extension. It writes the replication log,
 the figure, and the processed dataset to `stata/output/`.
+
+The independent Python implementation (`python/replication.py`) reproduces the
+same results; run `python python/replication.py` from the repository root to
+write the tables, figure, and processed data to `python/output/`.
 
 ## Key definitions
 
