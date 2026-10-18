@@ -1,8 +1,8 @@
-* Card & Krueger (1994) -- Replication (SUBMISSION VERSION)
+* Card & Krueger (1994) -- Replication
 * Reproduces Tables 2, 3, 4, Figure 1, and the store-size extension.
 *
 * Uses RELATIVE paths so the workflow runs on any machine after cloning.
-* Run: cd to this folder (stata/), then  do replication_submit.do
+* Run: cd to the stata/ folder, then  do replication.do
 * Input : ../data/public.csv
 * Output: output/  (replication_stata.log, figure_1_stata.png, processed_data.dta)
 

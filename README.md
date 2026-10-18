@@ -9,26 +9,22 @@ heterogeneity analysis.
 
 - `report.pdf` — the empirical report
 - `AI_USE_DISCLOSURE.md` — how AI was used at each stage
-- `code/run_all.do` — the workflow that generates all tables and figures
-- `data/raw/` — original input data
-- `data/processed/` — processed data used in the analysis
-- `outputs/tables/` — generated tables
-- `outputs/figures/` — generated figures
+- `stata/replication.do` — the workflow that generates all tables and figures
+- `data/` — original input data
 - `skills/SKILL.md` — the reusable skill that generates the main outputs
 
 ## Reproduce
 
-Place `public.csv` in `data/raw/` (see `data/raw/README.md`), then run:
+Place `public.csv` in `data/` (see `data/README.md`), then run:
 
 ```
-cd code
-do run_all.do
+cd stata
+do replication.do
 ```
 
 The workflow constructs all variables, reproduces Table 2, Table 3, Table 4,
-and Figure 1, and runs the store-size extension. It writes the replication log
-to `outputs/tables/`, the figure to `outputs/figures/`, and the processed
-dataset to `data/processed/`.
+and Figure 1, and runs the store-size extension. It writes the replication log,
+the figure, and the processed dataset to `stata/output/`.
 
 ## Key definitions
 
@@ -41,5 +37,5 @@ standard errors; Table 4 uses conventional standard errors to match the paper.
 
 `public.csv` is the course-provided restaurant survey data, distributed for
 ECO6067 teaching and coursework only. Obtain Package 01 from the course project
-page and place it in `data/raw/`. Do not redistribute or upload the data to
-public repositories.
+page and place it in `data/`. Do not redistribute or upload the data to public
+repositories.

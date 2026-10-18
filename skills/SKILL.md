@@ -13,7 +13,7 @@ Place the raw data file `public.csv` in `data/`. The file must be unchanged.
 From the `stata/` folder, run:
 
 ```
-do replication_submit.do
+do replication.do
 ```
 
 The workflow constructs all variables, reproduces the tables and figure, and
@@ -38,6 +38,6 @@ commands.
 
 To replicate a different difference-in-differences paper, replace the raw data
 file and adjust the variable construction and regression commands in
-`replication_submit.do` accordingly. The overall structure — construct
+`replication.do` accordingly. The overall structure — construct
 variables, produce summary statistics, estimate the treatment effect, run the
 extension, and save the outputs — transfers directly.
