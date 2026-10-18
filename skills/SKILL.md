@@ -6,15 +6,14 @@ heterogeneity extension, from the raw restaurant survey data.
 
 ## Input
 
-Place the raw data file `public.csv` in `data/raw/` (see `data/raw/README.md`
-for how to obtain it). The file must be unchanged.
+Place the raw data file `public.csv` in `data/`. The file must be unchanged.
 
 ## Run
 
-From the `code/` folder, run:
+From the `stata/` folder, run:
 
 ```
-do run_all.do
+do replication_submit.do
 ```
 
 The workflow constructs all variables, reproduces the tables and figure, and
@@ -23,9 +22,9 @@ commands.
 
 ## Output
 
-- `outputs/tables/replication_stata.log` — all tables and regression results
-- `outputs/figures/figure_1_stata.png` — distribution of starting wages
-- `data/processed/processed_data.dta` — the processed analysis dataset
+- `stata/output/replication_stata.log` — all tables and regression results
+- `stata/output/figure_1_stata.png` — distribution of starting wages
+- `stata/output/processed_data.dta` — the processed analysis dataset
 
 ## Key definitions
 
@@ -39,6 +38,6 @@ commands.
 
 To replicate a different difference-in-differences paper, replace the raw data
 file and adjust the variable construction and regression commands in
-`run_all.do` accordingly. The overall structure — construct variables, produce
-summary statistics, estimate the treatment effect, run the extension, and save
-the outputs — transfers directly.
+`replication_submit.do` accordingly. The overall structure — construct
+variables, produce summary statistics, estimate the treatment effect, run the
+extension, and save the outputs — transfers directly.
