@@ -2,19 +2,21 @@
 * Reproduces Tables 2, 3, 4, Figure 1, and the store-size extension.
 *
 * Uses RELATIVE paths so the workflow runs on any machine after cloning.
-* Run: cd to this folder (stata/), then  do replication_submit.do
-* Input : ../data/public.csv
-* Output: output/  (replication_stata.log, figure_1_stata.png, processed_data.dta)
+* Run: cd to the code/ folder, then  do run_all.do
+* Input : ../data/raw/public.csv
+* Output: ../outputs/tables/ (log), ../outputs/figures/ (figure), ../data/processed/ (data)
 
 version 15
 clear all
 set more off
 
-cap mkdir "output"
-log using "output/replication_stata.log", replace text
+cap mkdir "../outputs/tables"
+cap mkdir "../outputs/figures"
+cap mkdir "../data/processed"
+log using "../outputs/tables/replication_stata.log", replace text
 
 * Load raw data
-import delimited using "../data/public.csv", clear varnames(1) case(lower)
+import delimited using "../data/raw/public.csv", clear varnames(1) case(lower)
 
 * FTE employment = full-time + managers + 0.5 * part-time
 gen fte1 = empft + nmgrs + 0.5 * emppt
@@ -133,7 +135,7 @@ display _n "Continuous interaction: state x fte1 (robust)"
 reg dfte c.state##c.fte1, robust
 
 * Save the processed dataset (all constructed variables)
-save "output/processed_data.dta", replace
+save "../data/processed/processed_data.dta", replace
 
 * Figure 1 -- distribution of starting wages (2 states x 2 waves)
 histogram wage_st  if state == 1, bin(20) name(h1, replace) ///
@@ -145,7 +147,7 @@ histogram wage_st2 if state == 1, bin(20) name(h3, replace) ///
 histogram wage_st2 if state == 0, bin(20) name(h4, replace) ///
     title("Pennsylvania, November 1992") xtitle("Starting wage ($/hour)")
 graph combine h1 h2 h3 h4, cols(2) title("Figure 1. Distribution of starting wage rates")
-graph export "output/figure_1_stata.png", replace
+graph export "../outputs/figures/figure_1_stata.png", replace
 
 log close
-display _n "Done. Outputs in output/"
+display _n "Done. Outputs in ../outputs/ and ../data/processed/"
